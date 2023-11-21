@@ -1,18 +1,87 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Registration form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
-<h1>Registration Form</h1>
-<form>
-Name:<input type="text" required><br><br>
-Email:<input type:"email" required><br><br>
-password:<input type:"password" required minlength=8><br><br>
-DateOfBirth:<input type="date" required><br><br>
-<input type="checkbox" id="terms" name="terms" required>
-                I accept the terms and conditions<br><br>
-	<input type="submit"><br><br>
 
-</form>
+  <h2>Registration Form</h2>
+
+  <form id="registrationForm">
+    <label for="Name">Name:</label>
+    <input type="text" id="Name" name="Name" required><br>
+
+    <label for="email">email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="password">password:</label>
+    <input type="password" id="password" name="password" required><br>
+    <label for="Dateofbirth">Dateofbirth</label>
+    <input type="Date" id="Dateofbirth" name="Dateofbirth" required><br>
+    <button type="button" onclick="submitForm()">Submit</button>
+  </form>
+
+  <h2>Registered Users</h2>
+
+  <table id="userTable">
+    <tr>
+      <th> Name</th>
+      <th>email</th>
+      <th>password</th>
+      <th>Dateofbirth</th>
+    </tr>
+  </table>
+
+  <script>
+    function submitForm() {
+      // Get form values
+      var Name = document.getElementById('Name').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var DateOfBirth = document.getElementById('Dateofbirth').value;
+
+      // Create a new row in the table
+      var table = document.getElementById('userTable');
+      var newRow = table.insertRow(-1);
+
+      // Insert cells into the new row
+      var cell1 = newRow.insertCell(0);
+      var cell2 = newRow.insertCell(1);
+      var cell3 = newRow.insertCell(2);
+      var cell4 = newRow.insertCell(3);
+
+      // Populate cells with form values
+      cell1.innerHTML = tName;
+      cell2.innerHTML = email;
+      cell3.innerHTML = password;
+      cell4.innerHTML = Dateofbirth;
+
+      // Clear the form
+      document.getElementById('registrationForm').reset();
+    }
+  </script>
+
 </body>
-<html>
+</html>
